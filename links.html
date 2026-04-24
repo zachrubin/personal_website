@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zach Rubin — Links</title>
+<meta name="description" content="Personal links for Zach Rubin.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/svg+xml" href="/static/favicons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #faf9f6;
+  --bg-subtle: #f3f1ea;
+  --text: #1a1a1a;
+  --text-muted: #6b6760;
+  --text-subtle: #a09c95;
+  --accent: #a14f2b;
+  --accent-subtle: rgba(161, 79, 43, 0.08);
+  --border: rgba(26, 26, 26, 0.08);
+  --border-hover: rgba(26, 26, 26, 0.16);
+
+  --font-display: 'EB Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+:root.dark {
+  --bg: #141414;
+  --bg-subtle: #1f1f1f;
+  --text: #e8e6e1;
+  --text-muted: #8c8880;
+  --text-subtle: #5c5954;
+  --accent: #d97e57;
+  --accent-subtle: rgba(217, 126, 87, 0.08);
+  --border: rgba(232, 230, 225, 0.08);
+  --border-hover: rgba(232, 230, 225, 0.16);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: #141414;
+    --bg-subtle: #1f1f1f;
+    --text: #e8e6e1;
+    --text-muted: #8c8880;
+    --text-subtle: #5c5954;
+    --accent: #d97e57;
+    --accent-subtle: rgba(217, 126, 87, 0.08);
+    --border: rgba(232, 230, 225, 0.08);
+    --border-hover: rgba(232, 230, 225, 0.16);
+  }
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 24px 40px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  color: var(--text-muted);
+}
+
+.theme-toggle:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+}
+
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+:root.dark .theme-toggle .sun { display: block; }
+:root.dark .theme-toggle .moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .theme-toggle .sun { display: block; }
+  :root:not(.light) .theme-toggle .moon { display: none; }
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.headshot {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  margin: 0 auto 20px;
+  display: block;
+  animation: fadeUp 0.5s ease backwards;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  animation: fadeUp 0.5s 0.05s ease backwards;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  animation: fadeUp 0.5s 0.1s ease backwards;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+  animation: fadeUp 0.5s ease backwards;
+}
+
+.link:hover {
+  border-color: var(--border-hover);
+  background: var(--accent-subtle);
+  transform: translateY(-1px);
+}
+
+/* Stagger */
+.link:nth-child(1) { animation-delay: 0.15s; }
+.link:nth-child(2) { animation-delay: 0.18s; }
+.link:nth-child(3) { animation-delay: 0.21s; }
+.link:nth-child(4) { animation-delay: 0.24s; }
+.link:nth-child(5) { animation-delay: 0.27s; }
+.link:nth-child(6) { animation-delay: 0.30s; }
+.link:nth-child(7) { animation-delay: 0.33s; }
+.link:nth-child(8) { animation-delay: 0.36s; }
+.link:nth-child(9) { animation-delay: 0.39s; }
+.link:nth-child(10) { animation-delay: 0.42s; }
+
+.link-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.link:hover .link-icon {
+  color: var(--accent);
+}
+
+.link-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.link-icon.filled svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.link-label {
+  flex: 1;
+  text-align: left;
+  font-weight: 500;
+}
+
+.link-sub {
+  font-size: 13px;
+  color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.divider {
+  margin: 24px 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-subtle);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeUp 0.5s 0.45s ease backwards;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--text-subtle);
+  text-decoration: none;
+  padding: 12px;
+  transition: color 0.15s ease;
+  animation: fadeUp 0.5s 0.5s ease backwards;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 56px 20px 32px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .link {
+    padding: 13px 16px;
+  }
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" aria-label="Toggle color theme" onclick="toggleTheme()">
+  <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+</button>
+
+<div class="container">
+  <img class="headshot" src="/static/images/headshot.jpg" alt="Zach Rubin" width="88" height="88">
+  <h1>Zach Rubin</h1>
+  <div class="tagline">find me everywhere</div>
+
+  <div class="links">
+
+    <a class="link" href="https://zachrubin.dev">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+      <span class="link-label">Website</span>
+      <span class="link-sub">zachrubin.dev</span>
+    </a>
+
+    <a class="link" href="https://www.linkedin.com/in/zachxrubin/">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+      <span class="link-label">LinkedIn</span>
+    </a>
+
+    <a class="link" href="https://github.com/zachrubin">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></span>
+      <span class="link-label">GitHub</span>
+    </a>
+
+    <a class="link" href="https://x.com/zachxrubin">
+      <span class="link-icon filled"><svg viewBox="0 0 300 271"><path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/></svg></span>
+      <span class="link-label">X</span>
+    </a>
+
+    <a class="link" href="https://instagram.com/zach__rubin">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+      <span class="link-label">Instagram</span>
+    </a>
+
+    <a class="link" href="https://tiktok.com/@zachxrubin">
+      <span class="link-icon filled"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></span>
+      <span class="link-label">TikTok</span>
+    </a>
+
+    <div class="divider">Interests</div>
+
+    <a class="link" href="https://letterboxd.com/zrubin/">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg></span>
+      <span class="link-label">Letterboxd</span>
+      <span class="link-sub">films</span>
+    </a>
+
+    <a class="link" href="https://goodreads.com/zrubin">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      <span class="link-label">Goodreads</span>
+      <span class="link-sub">books</span>
+    </a>
+
+    <a class="link" href="https://app.beliapp.com/lists/zrubin">
+      <span class="link-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
+      <span class="link-label">Beli</span>
+      <span class="link-sub">restaurants</span>
+    </a>
+
+  </div>
+
+  <a class="back-link" href="/">← zachrubin.dev</a>
+</div>
+
+<script>
+function setTheme(theme) {
+  const root = document.documentElement;
+  root.classList.remove('dark', 'light');
+  if (theme === 'dark' || theme === 'light') {
+    root.classList.add(theme);
+    localStorage.setItem('theme', theme);
+  } else {
+    localStorage.removeItem('theme');
+  }
+}
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const current = root.classList.contains('dark') ? 'dark'
+    : root.classList.contains('light') ? 'light'
+    : (prefersDark ? 'dark' : 'light');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'dark' || saved === 'light') {
+    document.documentElement.classList.add(saved);
+  }
+})();
+</script>
+
+</body>
+</html>
